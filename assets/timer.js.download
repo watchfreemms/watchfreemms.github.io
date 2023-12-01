@@ -1,0 +1,106 @@
+const eventDate = new Date().getTime() + 1000 * 60 * 7;
+const timer = setInterval(() => {
+    const actualTime = new Date().getTime();
+    const difference = eventDate - actualTime;
+    // console.log(difference);
+    const minutes = (difference % (1000 * 60 * 7)) / (1000 * 60);
+    const seconds = (difference % (1000 * 60)) / 1000;
+    const minDozens = Math.floor(minutes / 10);
+    const minUnity = Math.floor(minutes % 10);
+    const secDozens = Math.floor(seconds / 10);
+    const secUnity = Math.floor(seconds % 10);
+    const hMinDozens = document.getElementById("min-dozens");
+    const hMinUnits = document.getElementById("min-unity");
+    const hSecDozens = document.getElementById("sec-dozens");
+    const hSecUnits = document.getElementById("sec-unity");
+    hMinDozens.innerHTML = minDozens;
+    hMinUnits.innerHTML = minUnity;
+    hSecDozens.innerHTML = secDozens;
+    hSecUnits.innerHTML = secUnity;
+    hMinDozens.classList.remove("timer-blur");
+    hMinUnits.classList.remove("timer-blur");
+    hSecDozens.classList.remove("timer-blur");
+    hSecUnits.classList.remove("timer-blur");
+    if (seconds % 1 < 0.3) {
+        hSecUnits.classList.add("timer-blur");
+        // second update
+        if (secUnity == 0) {
+            hSecDozens.classList.add("timer-blur");
+            // second dozens update
+            if (secDozens == 0) {
+                hMinUnits.classList.add("timer-blur");
+                // min update
+                if (minUnity == 0) {
+                    hMinDozens.classList.add("timer-blur");
+                    // min dozens update
+                }
+            }
+        }
+    }
+    if (difference < 0) {
+        // document.getElementById('message').innerHTML = "Thank you for nice time together 😄";
+        hSecUnits.classList.remove("timer-blur");
+        hMinDozens.innerHTML = 0;
+        hMinUnits.innerHTML = 0;
+        hSecDozens.innerHTML = 0;
+        hSecUnits.innerHTML = 0;
+        clearInterval(timer);
+    }
+}, 200);
+// Write a function which will countdown one hour from enter the website.
+const eventDate1 = new Date().getTime() + 1000 * 60 * 7;
+const timer1 = setInterval(() => {
+    const actualTime1 = new Date().getTime();
+    const difference1 = eventDate1 - actualTime1;
+    // console.log(difference);
+    const minutes1 = (difference1 % (1000 * 60 * 7)) / (1000 * 60);
+    const seconds1 = (difference1 % (1000 * 60)) / 1000;
+    const minDozens1 = Math.floor(minutes1 / 10);
+    const minUnity1 = Math.floor(minutes1 % 10);
+    const secDozens1 = Math.floor(seconds1 / 10);
+    const secUnity1 = Math.floor(seconds1 % 10);
+    const hMinDozens1 = document.getElementById("min-dozens-1");
+    const hMinUnits1 = document.getElementById("min-unity-1");
+    const hSecDozens1 = document.getElementById("sec-dozens-1");
+    const hSecUnits1 = document.getElementById("sec-unity-1");
+    hMinDozens1.innerHTML = minDozens1;
+    hMinUnits1.innerHTML = minUnity1;
+    hSecDozens1.innerHTML = secDozens1;
+    hSecUnits1.innerHTML = secUnity1;
+    hMinDozens1.classList.remove("timer-blur");
+    hMinUnits1.classList.remove("timer-blur");
+    hSecDozens1.classList.remove("timer-blur");
+    hSecUnits1.classList.remove("timer-blur");
+    if (seconds1 % 1 < 0.3) {
+        hSecUnits1.classList.add("timer-blur");
+        // second update
+        if (secUnity1 == 0) {
+            hSecDozens1.classList.add("timer-blur");
+            // second dozens update
+            if (secDozens1 == 0) {
+                hMinUnits1.classList.add("timer-blur");
+                // min update
+                if (minUnity1 == 0) {
+                    hMinDozens1.classList.add("timer-blur");
+                    // min dozens update
+                }
+            }
+        }
+    }
+    if (difference1 < 0) {
+        // document.getElementById('message').innerHTML = "Thank you for nice time together 😄";
+        hSecUnits1.classList.remove("timer-blur");
+        hMinDozens1.innerHTML = 0;
+        hMinUnits1.innerHTML = 0;
+        hSecDozens1.innerHTML = 0;
+        hSecUnits1.innerHTML = 0;
+        clearInterval(timer);
+    }
+}, 200);
+// Write a function which will countdown one hour from enter the website.
+
+$(document).ready(function () {
+    $(".js-pop-button-close").on("click", function () {
+        $(".pop-up--timer").fadeOut(500);
+    });
+});

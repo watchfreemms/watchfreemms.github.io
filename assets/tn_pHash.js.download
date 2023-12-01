@@ -1,0 +1,9 @@
+$(document).ready(function() {
+  // you need to insert the value of the parameter
+  let pHashVal = 'oh3y';
+  let button = $('.btn-fin');
+  let url = button.attr('href');
+  url += '&pHash=' + pHashVal;
+  button.attr('href', url);
+}
+                  );
